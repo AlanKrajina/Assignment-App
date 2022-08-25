@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Assignment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kreirajte novi React Typescript projekt sa sljedecim funkcionalnostima:
+- ako user nije ulogiran, prikazati ce mu se login stranica sa username i password imputima i "Login" gumbom
+- ako je user ulogiran, prikazati ce mu se stranica sa njegovim imenom i prezimenom i "Logout" gumbom
+- user ostaje ulogiran i nakon refresha stranice
+
+Za autentifikaciju se koristi POST request prema https://api.getcountapp.com/api/v1/authenticate sa JSON payloadom tipa: { "username": "john@doe.com", "password": "test123" }
+
+Login stranica treba na klijentskoj strani izvrsiti validaciju ispravnog emaila i osigurati da su oba polja popunjena prije pozivanja API-a.
+
+API ce vratiti status code 200 u slucaju ispravne autentifikacije (gore navedeni john@doe.com) ili 401 u slucaju neispravne (u tom slucaju ispisati gresku koju API vrati).
+
+Podaci o korisniku se mogu izvuci iz autentifikacijskog responsea ili se mogu dohvatiti preko GET https://api.getcountapp.com/api/v1/users/me endpointa koristeci bearer token koji autentifikacija vrati.
 
 ## Available Scripts
 
