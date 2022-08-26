@@ -22,6 +22,8 @@ const Form: React.FC<Props> = ({ setUserState }) => {
     {
       onSuccess: (data) => {
         localStorage.setItem("token", data?.data.token);
+
+        // comment next two lines to use getUser data for user details
         localStorage.setItem("firstName", data?.data.user.firstName);
         localStorage.setItem("lastName", data?.data.user.lastName);
 
