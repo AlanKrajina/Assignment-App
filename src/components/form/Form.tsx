@@ -3,6 +3,7 @@ import { useMutation } from "react-query";
 import fetchUser from "../../helpers/fetchApi";
 import { FormInterface, UserInterface } from "../../interfaces/interface";
 import { ACTIONS, reducer } from "../../reducers/reducer";
+import debounce from 'lodash.debounce';
 
 interface Props {
   setUserState: React.Dispatch<React.SetStateAction<UserInterface>>;
@@ -81,8 +82,7 @@ const Form: React.FC<Props> = ({ setUserState }) => {
             id="username"
             type="text"
             placeholder="Username..."
-            onChange={(e) => handleInputChange(e, ACTIONS.UPDATE_USERNAME)}
-            value={formState.username}
+            onChange={debounce((e) => handleInputChange(e, ACTIONS.UPDATE_USERNAME), 500)}
           />
           {formState.username === "" && (
             <p className="text-red-500 text-xs italic text-center mt-2">
@@ -99,8 +99,7 @@ const Form: React.FC<Props> = ({ setUserState }) => {
             id="password"
             type="password"
             placeholder="Password..."
-            onChange={(e) => handleInputChange(e, ACTIONS.UPDATE_PASSWORD)}
-            value={formState.password}
+            onChange={debounce((e) => handleInputChange(e, ACTIONS.UPDATE_PASSWORD), 500)}
           />
           {formState.password === "" && (
             <p className="text-red-500 text-xs italic text-center">
