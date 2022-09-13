@@ -72,7 +72,7 @@ const Form: React.FC<Props> = ({ setUserState }) => {
 
   return (
     <div className="w-full max-w-xl m-auto h-screen flex flex-col	justify-center">
-      <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 h-1/3 flex flex-col	justify-between animate-fade ">
+      <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 h-1/3 flex flex-col min-h-[350px] justify-between animate-fade ">
         <div className="mb-2 h-16">
           <label className="block text-gray-700 text-lg font-bold mb-2 text-center">
             Username
